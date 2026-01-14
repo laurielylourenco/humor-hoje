@@ -49,3 +49,6 @@ cards.forEach(card => {
 
 // para permitir desmarcar ao clicar de novo (opcional):
 result.addEventListener('dblclick', () => setSelectedCard(null));
+
+
+
