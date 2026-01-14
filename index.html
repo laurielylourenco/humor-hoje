@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Escolha seu humor de hoje</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrapper">
+    <h1>🔮 Escolha seu humor de hoje</h1>
+    <p class="subtitle">Clique em um card para escolher</p>
+
+    <div class="cards" role="list">
+      <button class="mood-card" data-emoji="😴" data-mood="Cansada" aria-pressed="false">
+        <span class="emoji">😴</span>
+        <span class="label">Cansada</span>
+      </button>
+
+      <button class="mood-card" data-emoji="😄" data-mood="Animada" aria-pressed="false">
+        <span class="emoji">😄</span>
+        <span class="label">Animada</span>
+      </button>
+
+      <button class="mood-card" data-emoji="😵‍💫" data-mood="Sobrecarregada" aria-pressed="false">
+        <span class="emoji">😵‍💫</span>
+        <span class="label">Sobrecarregada</span>
+      </button>
+
+      <button class="mood-card" data-emoji="🤓" data-mood="Focada" aria-pressed="false">
+        <span class="emoji">🤓</span>
+        <span class="label">Focada</span>
+      </button>
+
+      <button class="mood-card" data-emoji="🙃" data-mood="Procrastinando" aria-pressed="false">
+        <span class="emoji">🙃</span>
+        <span class="label">Procrastinando</span>
+      </button>
+
+      <button class="mood-card" data-emoji="😌" data-mood="Tranquila" aria-pressed="false">
+        <span class="emoji">😌</span>
+        <span class="label">Tranquila</span>
+      </button>
+
+      <button class="mood-card" data-emoji="�" data-mood="Engraçada" aria-pressed="false">
+        <span class="emoji">😆</span>
+        <span class="label">Engraçada</span>
+      </button>
+
+      <button class="mood-card" data-emoji="🤩" data-mood="Inspirada" aria-pressed="false">
+        <span class="emoji">🤩</span>
+        <span class="label">Inspirada</span>
+      </button>
+    </div>
+
+    <div id="result" class="result" aria-live="polite"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
