@@ -39,3 +39,42 @@ python3 -m http.server 8080
 ```
 
 Depois acesse `http://localhost:8080`.
+
+## Simular tráfego fake (para o Clarity)
+
+O Clarity só registra visitas com JavaScript no navegador. Use o simulador com Playwright:
+
+```bash
+npm install
+npx playwright install chromium
+npm run simulate:prod -- --sessions 10
+```
+
+Opções úteis:
+
+```bash
+# Site em produção (GitHub Pages)
+npm run simulate:prod -- --sessions 8
+
+# Local
+npm run simulate:local -- --sessions 5
+
+# Ver o navegador abrindo
+npm run simulate:prod -- --sessions 3 --headed
+```
+
+O script simula perfis diferentes: usuário focado, curioso, explorador, frustrado (rage/dead clicks), perdido nas estatísticas e scroller.
+
+Os dados levam alguns minutos para aparecer no painel do Clarity.
+
+## Simular via GitHub Actions
+
+O workflow **Simular tráfego Clarity** roda automaticamente 2x por dia (9h e 21h, horário de Brasília) com 5 sessões.
+
+Para rodar manualmente:
+
+1. Vá em **Actions** → **Simular tráfego Clarity**
+2. Clique em **Run workflow**
+3. Defina quantas sessões quer (ex.: `10`)
+
+Arquivo: `.github/workflows/simulate-traffic.yml`

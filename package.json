@@ -1,0 +1,13 @@
+{
+  "name": "humor-hoje",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "simulate": "node scripts/simulate-traffic.mjs",
+    "simulate:prod": "node scripts/simulate-traffic.mjs --url https://laurielylourenco.github.io/humor-hoje",
+    "simulate:local": "node scripts/simulate-traffic.mjs --url http://localhost:8080"
+  },
+  "devDependencies": {
+    "playwright": "^1.51.0"
+  }
+}
