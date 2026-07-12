@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laboratório UX — Humor Hoje</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "xl0bppdocr");
+  </script>
+</head>
+
+<body data-page="laboratorio">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Humor Hoje</h2>
+        <p>Laboratório para aprender Microsoft Clarity</p>
+      </div>
+      <nav id="sidebar-nav" class="sidebar-nav" aria-label="Menu principal"></nav>
+      <div class="sidebar-tip">
+        Use esta página para gerar <strong>rage clicks</strong>, <strong>dead clicks</strong> e frustração real.
+      </div>
+    </aside>
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <div class="main-area">
+      <header class="topbar">
+        <button id="sidebar-toggle" class="sidebar-toggle" aria-expanded="false" aria-controls="sidebar">☰ Menu</button>
+        <strong>Humor Hoje</strong>
+      </header>
+
+      <main class="content">
+        <header class="page-header">
+          <h1>🧪 Laboratório de fricção UX</h1>
+          <p>Cada bloco abaixo foi feito para gerar um sinal específico no Clarity. Teste como um usuário real.</p>
+        </header>
+
+        <section class="panel">
+          <h2>1. Clique morto (Dead click)</h2>
+          <p>Elemento que parece botão, mas não responde.</p>
+          <span class="fake-btn" id="dead-click">Salvar preferências</span>
+          <div class="clarity-tip">No Clarity: Dashboard → <strong>Dead clicks</strong></div>
+        </section>
+
+        <section class="panel">
+          <h2>2. Clique de raiva (Rage click)</h2>
+          <p>Este botão só funciona no 3º clique. Clique rápido várias vezes.</p>
+          <button class="btn btn-danger" id="rage-click" type="button">Confirmar pedido</button>
+          <p id="rage-status" class="result"></p>
+          <div class="clarity-tip">No Clarity: Dashboard → <strong>Rage clicks</strong></div>
+        </section>
+
+        <section class="panel">
+          <h2>3. Resposta lenta</h2>
+          <p>Demora 3 segundos para responder. Muita gente clica de novo antes.</p>
+          <button class="btn" id="slow-btn" type="button">Enviar formulário</button>
+          <p id="slow-output" class="result"></p>
+          <div class="clarity-tip">Veja nas gravações se o usuário clica repetidamente durante a espera.</div>
+        </section>
+
+        <section class="panel">
+          <h2>4. Botão camuflado</h2>
+          <p>A ação importante está quase invisível.</p>
+          <button class="hidden-btn" id="hidden-btn" type="button">ok</button>
+          <p id="hidden-result" class="result"></p>
+          <div class="clarity-tip">Compare no heatmap: poucos cliques nesse micro-botão.</div>
+        </section>
+
+        <section class="panel">
+          <h2>5. Modal confuso</h2>
+          <p>O X não fecha. O fechamento real é um link discreto.</p>
+          <button class="btn btn-secondary" id="open-modal" type="button">Abrir aviso importante</button>
+          <p id="modal-hint" class="result"></p>
+          <div class="clarity-tip">Nas gravações, observe tentativas no X falso antes de achar "descartar".</div>
+        </section>
+
+        <section class="panel">
+          <h2>6. Scroll profundo</h2>
+          <p>Conteúdo longo com CTA só no final — testa até onde o usuário rola.</p>
+          <div class="long-scroll">
+            <p>Linha 1: conteúdo filler para forçar rolagem.</p>
+            <p>Linha 2: a maioria desiste antes do fim.</p>
+            <p>Linha 3: continue rolando...</p>
+            <p>Linha 4: quase lá...</p>
+            <p>Linha 5: mais um pouco...</p>
+            <p>Linha 6: último trecho visível no scroll interno.</p>
+            <p id="scroll-bottom">Linha 7: você chegou ao fundo!</p>
+          </div>
+          <button class="btn" id="scroll-cta" type="button">Quero o bônus secreto</button>
+          <div class="clarity-tip">No Clarity: Heatmaps → <strong>Scroll map</strong> desta página.</div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="confusing-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <h2 id="modal-title">Aviso do sistema</h2>
+        <button type="button" class="modal-fake-x" id="modal-fake-close" title="Parece que fecha..." aria-label="Fechar">✕</button>
+      </div>
+      <p>Para continuar, leia tudo com atenção. Muitos usuários tentam fechar pelo X.</p>
+      <button type="button" class="modal-real-close" id="modal-real-close">descartar e continuar</button>
+    </div>
+  </div>
+
+  <script src="clarity-track.js"></script>
+  <script src="nav.js"></script>
+  <script src="lab.js"></script>
+</body>
+
+</html>

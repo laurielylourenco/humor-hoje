@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estatísticas — Humor Hoje</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "xl0bppdocr");
+  </script>
+</head>
+
+<body data-page="estatisticas">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Humor Hoje</h2>
+        <p>Laboratório para aprender Microsoft Clarity</p>
+      </div>
+      <nav id="sidebar-nav" class="sidebar-nav" aria-label="Menu principal"></nav>
+      <div class="sidebar-tip">
+        Interface confusa de propósito — observe hesitação e cliques errados nas gravações.
+      </div>
+    </aside>
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <div class="main-area">
+      <header class="topbar">
+        <button id="sidebar-toggle" class="sidebar-toggle" aria-expanded="false" aria-controls="sidebar">☰ Menu</button>
+        <strong>Humor Hoje</strong>
+      </header>
+
+      <main class="content">
+        <header class="page-header">
+          <h1>📊 Central de estatísticas</h1>
+          <p>Filtros confusos e botão de aplicar que não parece botão. Tente "usar" sem ler as instruções.</p>
+          <span class="badge">Alta fricção intencional</span>
+        </header>
+
+        <div class="panel stats-mess">
+          <div class="stats-row">
+            <label for="periodo">Período</label>
+            <select id="periodo">
+              <option>Hoje</option>
+              <option>7 dias</option>
+              <option>30 dias</option>
+            </select>
+          </div>
+          <div class="stats-row">
+            <label for="tipo">Tipo de dado</label>
+            <select id="tipo">
+              <option>Humor</option>
+              <option>Navegação</option>
+              <option>Erros</option>
+            </select>
+          </div>
+          <div class="stats-row">
+            <label for="busca">Busca avançada</label>
+            <input id="busca" type="text" placeholder="digite algo..." />
+          </div>
+
+          <p style="margin:0;color:var(--muted);font-size:0.85rem;">
+            O botão de aplicar está abaixo, mas parece texto comum:
+          </p>
+          <span class="fake-btn" id="apply-filters">aplicar filtros agora</span>
+          <p id="stats-result" class="result"></p>
+        </div>
+
+        <div class="panel">
+          <h2>Exportar relatório</h2>
+          <p>O botão real de exportar é pequeno e cinza. O botão verde não faz nada.</p>
+          <button class="btn" id="fake-export" type="button">Exportar PDF</button>
+          <button class="hidden-btn" id="real-export" type="button">csv</button>
+          <p id="export-result" class="result"></p>
+        </div>
+
+        <div class="clarity-tip">
+          Veja no Clarity se usuários clicam em "Exportar PDF" (morto) antes de achar o "csv".
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="clarity-track.js"></script>
+  <script src="nav.js"></script>
+  <script>
+    document.getElementById('apply-filters')?.addEventListener('click', () => {
+      const periodo = document.getElementById('periodo').value;
+      const tipo = document.getElementById('tipo').value;
+      document.getElementById('stats-result').textContent =
+        `Filtros aplicados: ${periodo} / ${tipo} (dados fictícios)`;
+      window.trackClarity?.('event', 'estatisticas_filtro_aplicado', { periodo, tipo });
+    });
+
+    document.getElementById('fake-export')?.addEventListener('click', () => {
+      window.trackClarity?.('event', 'estatisticas_export_falso');
+      document.getElementById('export-result').textContent =
+        'Esse botão não exporta nada. Procure outro.';
+    });
+
+    document.getElementById('real-export')?.addEventListener('click', () => {
+      document.getElementById('export-result').textContent = 'Exportação CSV iniciada (simulada).';
+      window.trackClarity?.('event', 'estatisticas_export_real');
+    });
+  </script>
+</body>
+
+</html>

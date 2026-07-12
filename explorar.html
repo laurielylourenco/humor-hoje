@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Explorar — Humor Hoje</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "xl0bppdocr");
+  </script>
+</head>
+
+<body data-page="explorar">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Humor Hoje</h2>
+        <p>Laboratório para aprender Microsoft Clarity</p>
+      </div>
+      <nav id="sidebar-nav" class="sidebar-nav" aria-label="Menu principal"></nav>
+      <div class="sidebar-tip">
+        Compare no Clarity quais zonas recebem mais cliques: as grandes ou as escondidas.
+      </div>
+    </aside>
+
+    <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+    <div class="main-area">
+      <header class="topbar">
+        <button id="sidebar-toggle" class="sidebar-toggle" aria-expanded="false" aria-controls="sidebar">☰ Menu</button>
+        <strong>Humor Hoje</strong>
+      </header>
+
+      <main class="content">
+        <header class="page-header">
+          <h1>🗺️ Mapa de exploração</h1>
+          <p>Simula um site com áreas populares e áreas que quase ninguém encontra.</p>
+          <span class="badge">Tráfego médio esperado</span>
+        </header>
+
+        <div class="zone-grid">
+          <a href="explorar-sala.html" class="zone-card is-hot" data-clarity-zone="sala_principal">
+            <h3>🏛️ Sala principal</h3>
+            <p>Área grande e óbvia. A maioria dos usuários deve clicar aqui.</p>
+          </a>
+
+          <a href="explorar-arquivo.html" class="zone-card" data-clarity-zone="arquivo">
+            <h3>📁 Arquivo</h3>
+            <p>Segunda opção visível, mas menos chamativa que a sala principal.</p>
+          </a>
+
+          <div class="zone-card is-cold">
+            <h3>🕳️ Cantinho esquecido</h3>
+            <p>Não tem botão grande. Só um link minúsculo abaixo.</p>
+            <a href="explorar-secreto.html" class="tiny-link" id="secret-link">ir para o cantinho</a>
+          </div>
+
+          <div class="zone-card is-cold">
+            <h3>🚪 Porta decorativa</h3>
+            <p>Parece clicável, mas não leva a lugar nenhum (clique morto).</p>
+            <span class="fake-btn" id="fake-door">Entrar</span>
+          </div>
+        </div>
+
+        <div class="clarity-tip">
+          No painel do Clarity, abra <strong>Heatmaps → Click map</strong> nesta URL e compare a intensidade de cliques entre "Sala principal" e "ir para o cantinho".
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="clarity-track.js"></script>
+  <script src="nav.js"></script>
+  <script>
+    document.getElementById('fake-door')?.addEventListener('click', () => {
+      window.trackClarity?.('event', 'explorar_porta_falsa');
+    });
+    document.getElementById('secret-link')?.addEventListener('click', () => {
+      window.trackClarity?.('event', 'explorar_cantinho_encontrado');
+    });
+    document.querySelectorAll('[data-clarity-zone]').forEach((el) => {
+      el.addEventListener('click', () => {
+        window.trackClarity?.('event', 'explorar_zona', { zona: el.dataset.clarityZone });
+      });
+    });
+  </script>
+</body>
+
+</html>
