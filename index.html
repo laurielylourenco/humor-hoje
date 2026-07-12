@@ -4,10 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Escolha seu humor de hoje</title>
+  <title>Escolher humor — Humor Hoje</title>
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Microsoft Clarity -->
   <script type="text/javascript">
     (function (c, l, a, r, i, t, y) {
       c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -17,64 +15,86 @@
   </script>
 </head>
 
-<body>
-  <main class="wrapper">
-    <h1>🔮 Escolha seu humor de hoje</h1>
-    <p class="subtitle">Clique em um card para escolher</p>
+<body data-page="humor">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Humor Hoje</h2>
+        <p>Laboratório para aprender Microsoft Clarity</p>
+      </div>
+      <nav id="sidebar-nav" class="sidebar-nav" aria-label="Menu principal"></nav>
+      <div class="sidebar-tip">
+        Dica: esta página deve ter mais visitas. Compare no Clarity em <strong>Pages</strong> e <strong>Heatmaps</strong>.
+      </div>
+    </aside>
 
-    <div class="cards" role="list">
-      <button class="mood-card" data-emoji="😴" data-mood="Cansada" aria-pressed="false">
-        <span class="emoji">😴</span>
-        <span class="label">Cansada</span>
-      </button>
+    <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
 
-      <button class="mood-card" data-emoji="😄" data-mood="Animada" aria-pressed="false">
-        <span class="emoji">😄</span>
-        <span class="label">Animada</span>
-      </button>
+    <div class="main-area">
+      <header class="topbar">
+        <button id="sidebar-toggle" class="sidebar-toggle" aria-expanded="false" aria-controls="sidebar">☰ Menu</button>
+        <strong>Humor Hoje</strong>
+      </header>
 
-      <button class="mood-card" data-emoji="😵‍💫" data-mood="Sobrecarregada" aria-pressed="false">
-        <span class="emoji">😵‍💫</span>
-        <span class="label">Sobrecarregada</span>
-      </button>
+      <main class="content">
+        <header class="page-header">
+          <h1>🔮 Escolha seu humor de hoje</h1>
+          <p>Clique em um card para escolher. Cada clique gera um evento customizado no Clarity.</p>
+          <span class="badge">Página mais visitada (proposital)</span>
+        </header>
 
-      <button class="mood-card" data-emoji="🤓" data-mood="Focada" aria-pressed="false">
-        <span class="emoji">🤓</span>
-        <span class="label">Focada</span>
-      </button>
+        <div class="cards" role="list">
+          <button class="mood-card" data-emoji="😴" data-mood="Cansada" aria-pressed="false">
+            <span class="emoji">😴</span>
+            <span class="label">Cansada</span>
+          </button>
+          <button class="mood-card" data-emoji="😄" data-mood="Animada" aria-pressed="false">
+            <span class="emoji">😄</span>
+            <span class="label">Animada</span>
+          </button>
+          <button class="mood-card" data-emoji="😵‍💫" data-mood="Sobrecarregada" aria-pressed="false">
+            <span class="emoji">😵‍💫</span>
+            <span class="label">Sobrecarregada</span>
+          </button>
+          <button class="mood-card" data-emoji="🤓" data-mood="Focada" aria-pressed="false">
+            <span class="emoji">🤓</span>
+            <span class="label">Focada</span>
+          </button>
+          <button class="mood-card" data-emoji="🙃" data-mood="Procrastinando" aria-pressed="false">
+            <span class="emoji">🙃</span>
+            <span class="label">Procrastinando</span>
+          </button>
+          <button class="mood-card" data-emoji="😌" data-mood="Tranquila" aria-pressed="false">
+            <span class="emoji">😌</span>
+            <span class="label">Tranquila</span>
+          </button>
+          <button class="mood-card" data-emoji="😆" data-mood="Engraçada" aria-pressed="false">
+            <span class="emoji">😆</span>
+            <span class="label">Engraçada</span>
+          </button>
+          <button class="mood-card" data-emoji="🤩" data-mood="Inspirada" aria-pressed="false">
+            <span class="emoji">🤩</span>
+            <span class="label">Inspirada</span>
+          </button>
+        </div>
 
-      <button class="mood-card" data-emoji="🙃" data-mood="Procrastinando" aria-pressed="false">
-        <span class="emoji">🙃</span>
-        <span class="label">Procrastinando</span>
-      </button>
+        <div id="result" class="result" aria-live="polite"></div>
 
-      <button class="mood-card" data-emoji="😌" data-mood="Tranquila" aria-pressed="false">
-        <span class="emoji">😌</span>
-        <span class="label">Tranquila</span>
-      </button>
-
-      <button class="mood-card" data-emoji="�" data-mood="Engraçada" aria-pressed="false">
-        <span class="emoji">😆</span>
-        <span class="label">Engraçada</span>
-      </button>
-
-      <button class="mood-card" data-emoji="🤩" data-mood="Inspirada" aria-pressed="false">
-        <span class="emoji">🤩</span>
-        <span class="label">Inspirada</span>
-      </button>
+        <div class="clarity-tip">
+          No Clarity, filtre por evento <strong>humor_selecionado</strong> e veja qual humor aparece mais nas gravações.
+        </div>
+      </main>
     </div>
+  </div>
 
-    <div id="result" class="result" aria-live="polite"></div>
-  </main>
-
+  <script src="clarity-track.js"></script>
+  <script src="nav.js"></script>
   <script src="script.js"></script>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFGVX2FGV3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-QFGVX2FGV3');
   </script>
 </body>

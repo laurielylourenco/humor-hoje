@@ -36,7 +36,13 @@ function setSelectedCard(card){
 })();
 
 cards.forEach(card => {
-  card.addEventListener('click', () => setSelectedCard(card));
+  card.addEventListener('click', () => {
+    setSelectedCard(card);
+    const mood = card.dataset.mood || '';
+    if (window.trackClarity) {
+      window.trackClarity('event', 'humor_selecionado', { humor: mood });
+    }
+  });
 
   // Suporte a teclado (Enter/Space) já funciona em <button>, mas deixamos como demonstração
   card.addEventListener('keydown', (e) => {
